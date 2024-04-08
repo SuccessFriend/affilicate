@@ -7,12 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "db:push" : " prisma db push  --schema=./src/prisma/schema.prisma",
+    "migrate": "npx prisma migrate dev --name init --preview-feature --schema=./src/prisma/schema.prisma",
+    "migration:save": "npx prisma migrate save --experimental --schema=./src/prisma/schema.prisma",
+    "migration:up": "npx prisma migrate up --experimental --schema=./src/prisma/schema.prisma",
+    "migration:down": "npx prisma migrate down --experimental --schema=./src/prisma/schema.prisma",
+    "generate": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.12.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
   },
@@ -20,6 +27,7 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.5",
     "nodemon": "^3.1.0",
+    "prisma": "^5.12.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4"
   }
